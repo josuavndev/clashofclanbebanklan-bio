@@ -6,12 +6,15 @@
     },
     "api/admin.php": {
       "runtime": "vercel-php@0.9.0"
+    },
+    "api/admin-entry.php": {
+      "runtime": "vercel-php@0.9.0"
     }
   },
   "routes": [
     { "src": "/(.*)\\.(png|jpg|jpeg|gif|svg|webp|ico|css|js|txt|xml|json)$", "dest": "/public/$1.$2" },
-    { "src": "/admin", "dest": "/api/admin.php" },
-    { "src": "/admin/(.*)", "dest": "/api/admin.php" },
+    { "src": "/admin", "dest": "/api/admin-entry.php" },
+    { "src": "/admin/(.*)", "dest": "/api/admin-entry.php" },
     { "src": "/(.*)", "dest": "/api/index.php" }
   ]
 }
