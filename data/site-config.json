@@ -1,0 +1,52 @@
+{
+  "config": {
+    "creatorName": "CLASHOFCLANBEBANKLAN",
+    "tiktok": {
+      "username": "@clashofclansbebanklan",
+      "displayName": "CLASHOFCLANBEBANKLAN",
+      "profileUrl": "https://www.tiktok.com/@clashofclansbebanklan",
+      "avatarUrl": "image_a0840b.png",
+      "bio": "Ngoprek Klipper, bikin printer makin kencang, dan sesekali bikin masalah baru buat diselesaikan.",
+      "stats": {"following":"142","followers":"28.4K","likes":"185.9K"}
+    },
+    "urls": {
+      "donateSaweria":"https://saweria.co/placeholder-bebanklan",
+      "donateTrakteer":"https://trakteer.id/placeholder-bebanklan",
+      "donateKofi":"https://ko-fi.com/placeholder-bebanklan",
+      "aiKlipperAffiliate":"https://ai-klipper-tool.placeholder/aff?ref=bebanklan",
+      "whatsappNumber":"6281234567890",
+      "discordInvite":"https://discord.gg/placeholder-bebanklan",
+      "socials": {
+        "youtube":"https://youtube.com/@placeholder-bebanklan",
+        "tiktok":"https://www.tiktok.com/@clashofclansbebanklan",
+        "instagram":"https://instagram.com/placeholder-bebanklan",
+        "discord":"https://discord.gg/placeholder-bebanklan",
+        "github":"https://github.com/placeholder-bebanklan"
+      }
+    }
+  },
+  "products": [
+    {"id":1,"name":"GEMS POUCH 2,500 💎","description":"Paket Gems legal resmi Supercell ID, cocok buat upgrade builder hut & hero speedrun.","price":"Rp 145.000","rarity":"EPIC","status":"READY STOCK","featured":false,"iconType":"gem-pouch"},
+    {"id":2,"name":"GOLD PASS SEASON 🏆","description":"Aktivasi Gold Pass instan. Buka skin hero eksklusif, 20% builder boost, & 1-Gem donation.","price":"Rp 89.000","rarity":"LEGENDARY","status":"READY STOCK","featured":true,"iconType":"gold-pass"},
+    {"id":3,"name":"DARK ELIXIR BARREL 🟣","description":"Supply botol Dark Elixir buat leveling Queen & King anti-mentok saat Clan War League.","price":"Rp 65.000","rarity":"RARE","status":"READY STOCK","featured":false,"iconType":"dark-elixir"},
+    {"id":4,"name":"CLAN CASTLE WAR PACK ⚔️","description":"Bundling Spell + Max Siege Machine priority donation pass untuk 1 musim War.","price":"Rp 45.000","rarity":"SPECIAL","status":"READY STOCK","featured":false,"iconType":"clan-shield"},
+    {"id":5,"name":"HERO POTION BUNDLE 🧪","description":"5x Botol Hero Potion instan +5 Level saat attack war. Sangat krusial buat 3-Star!","price":"Rp 35.000","rarity":"COMMON","status":"READY STOCK","featured":false,"iconType":"potion"},
+    {"id":6,"name":"TH16 MAX BASE PACK 🏰","description":"Full base layout anti 3-star CWL rancangan pro builder klan + test attack coaching.","price":"Rp 120.000","rarity":"EPIC","status":"SOLD OUT","featured":false,"iconType":"castle-blueprint"}
+  ],
+  "topDonators": {
+    "monthly": [
+      {"rank":1,"name":"Sultan TH16 (Anonim)","amount":"Rp 500.000","coffee":"100 ☕","tier":"👑 CHAMPION LEAGUE","note":"“Biar nozzle 260°C jalan terus & ganti roll PETG baru!”","avatarBg":"from-amber-400 to-yellow-300","badgeBg":"bg-brand-yellow text-black"},
+      {"rank":2,"name":"Lord Pekka 99","amount":"Rp 250.000","coffee":"50 ☕","tier":"🥈 TITAN LEAGUE","note":"“Titip upgrade wall TH15 borongan bang.","badgeBg":"bg-slate-200 text-black"},
+      {"rank":3,"name":"Wizard Kafein","amount":"Rp 150.000","coffee":"30 ☕","tier":"🥉 MASTER LEAGUE","note":"“Sedekah kopi biar gak kena three star pas war!","badgeBg":"bg-amber-100 text-amber-950"},
+      {"rank":4,"name":"Barbarian Santuy","amount":"Rp 75.000","coffee":"15 ☕","tier":"⚔️ CRYSTAL","note":"“Semangat ngoprek Klipper-nya leader!","badgeBg":"bg-purple-100 text-purple-950"},
+      {"rank":5,"name":"Goblin Elixir","amount":"Rp 50.000","coffee":"10 ☕","tier":"🪙 GOLD","note":"“Uang jajan kopi segelas.","badgeBg":"bg-yellow-100 text-yellow-900"}
+    ],
+    "allTime": [
+      {"rank":1,"name":"Kaisar Filament (Banten)","amount":"Rp 1.750.000","coffee":"350 ☕","tier":"👑 LEGEND SUPREME","note":"“Support total markas BebanKlan sejak era Ender 3!","avatarBg":"from-amber-400 to-yellow-300","badgeBg":"bg-brand-yellow text-black"},
+      {"rank":2,"name":"Sultan TH16 (Anonim)","amount":"Rp 1.100.000","coffee":"220 ☕","tier":"🥈 TITAN SULTAN","note":"“Bebanklan no counter di war!","badgeBg":"bg-slate-200 text-black"},
+      {"rank":3,"name":"HogRider Kece","amount":"Rp 650.000","coffee":"130 ☕","tier":"🥉 MASTER","note":"“Ganti nozzle pake hardened steel bang.","badgeBg":"bg-amber-100 text-amber-950"},
+      {"rank":4,"name":"Lord Pekka 99","amount":"Rp 420.000","coffee":"84 ☕","tier":"⚔️ CRYSTAL","note":"“Langganan joki terpercaya.","badgeBg":"bg-purple-100 text-purple-950"},
+      {"rank":5,"name":"Archer Queen Worshipper","amount":"Rp 250.000","coffee":"50 ☕","tier":"🪙 GOLD","note":"“Buat jajan Mami Queen biar panahnya gak goyang!","badgeBg":"bg-pink-100 text-pink-900"}
+    ]
+  }
+}
