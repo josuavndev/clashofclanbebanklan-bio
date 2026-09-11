@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\ServiceProvider;
+
 return [
     'name' => env('APP_NAME', 'CLASHOFCLANBEBANKLAN'),
     'env' => env('APP_ENV', 'production'),
@@ -15,4 +17,7 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'array'),
     ],
+    'providers' => ServiceProvider::defaultProviders()->merge([
+        // Application service providers can be added here later.
+    ])->toArray(),
 ];
