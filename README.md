@@ -1,15 +1,34 @@
-# clashofclanbebanklan Bio
+# CLASHOFCLANBEBANKLAN Bio — Laravel
 
-Bio-link creator hub for clashofclanbebanklan.
+Laravel 13 version of the original Neo-Brutalism + Dopamine + Kinetic Typography bio hub.
 
-## Planned structure
+## Struktur utama
 
-- Support / Donate
-- AI Klipper affiliate
-- COC Item Shop
-- Joki Wall
-- Joki Rank
-- Social links
-- Replaceable Queen / King character assets
+- `resources/views/home.blade.php` — tampilan utama. Desain demo dipertahankan.
+- `routes/web.php` — route halaman utama.
+- `config/` — konfigurasi Laravel.
+- `public/` — entry point dan asset publik.
+- `api/index.php` + `vercel.json` — adapter deployment Vercel.
 
-The production site source will be added in the next step.
+## Edit tampilan
+
+Untuk mengubah teks, section, warna, tombol, animasi, atau layout, edit:
+
+`resources/views/home.blade.php`
+
+Source ini sengaja mempertahankan markup dan JavaScript demo supaya migrasi tidak mengubah tampilan.
+
+## Jalankan lokal
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan serve
+```
+
+Buka `http://127.0.0.1:8000`.
+
+## Catatan Vercel
+
+Project memakai community PHP runtime `vercel-php` melalui `vercel.json`. Composer dependency di-install oleh runtime saat deployment.
