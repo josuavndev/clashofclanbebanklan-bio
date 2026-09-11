@@ -15,7 +15,7 @@ if (!is_file($htmlFile) || !is_readable($htmlFile)) {
 }
 
 header('Content-Type: text/html; charset=utf-8');
-header('Cache-Control: public, max-age=0, must-revalidate');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 
 $html = file_get_contents($htmlFile);
 
@@ -25,11 +25,21 @@ if ($html === false) {
     exit;
 }
 
-// Keep the complete TikTok avatar visible instead of cropping it inside the square.
-$html = str_replace(
-    'object-cover object-center rounded-xl bg-neutral-900 border border-black/40',
-    'object-contain object-center rounded-xl bg-neutral-900 border border-black/40',
-    $html
+// Force the TikTok avatar to fit inside its box without cropping.
+$html = preg_replace(
+    '/(<img[^>]*id=["\']tiktokAvatarImg["\'][^>]*class=["\'])([^"\']*)(["\'])/i',
+    '$1$2 object-contain object-center$3',
+    $html,
+    1
+);
+
+// Add an explicit inline rule as a final safeguard against Tailwind/browser CSS
+// overriding object-fit. This keeps the entire image visible within the avatar.
+$html = preg_replace(
+    '/(<img[^>]*id=["\']tiktokAvatarImg["\'][^>]*)(>)/i',
+    '$1 style="object-fit:contain!important;object-position:center!important;width:100%;height:100%;display:block;"$2',
+    $html,
+    1
 );
 
 echo $html;
