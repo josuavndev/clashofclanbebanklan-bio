@@ -16,4 +16,20 @@ if (!is_file($htmlFile) || !is_readable($htmlFile)) {
 
 header('Content-Type: text/html; charset=utf-8');
 header('Cache-Control: public, max-age=0, must-revalidate');
-readfile($htmlFile);
+
+$html = file_get_contents($htmlFile);
+
+if ($html === false) {
+    http_response_code(500);
+    echo 'Unable to read bio page source.';
+    exit;
+}
+
+// Keep the complete TikTok avatar visible instead of cropping it inside the square.
+$html = str_replace(
+    'object-cover object-center rounded-xl bg-neutral-900 border border-black/40',
+    'object-contain object-center rounded-xl bg-neutral-900 border border-black/40',
+    $html
+);
+
+echo $html;
