@@ -218,24 +218,17 @@
       <!-- Avatar, Handle & Quick Follow -->
       <div class="flex items-start gap-3.5 sm:gap-4">
         
-        <!-- TikTok Avatar with Duo-Tone Border Accent & Quick Upload -->
+        <!-- TikTok Avatar (Permanen & Terkunci - Direct Link ke TikTok) -->
         <div class="relative shrink-0 group">
-          <div class="w-20 h-20 sm:w-22 sm:h-22 bg-gradient-to-tr from-[#FE2C55] via-black to-[#00F2FE] p-1 border-3 border-black rounded-2xl shadow-brutal transition transform group-hover:scale-105 overflow-hidden relative cursor-pointer"
-               onclick="document.getElementById('avatarFileInput').click()"
-               title="Klik untuk upload / pilih foto profil dari perangkat">
+          <a id="tiktokAvatarLink" href="https://www.tiktok.com/@clashofclansbebanklan" target="_blank" rel="noopener noreferrer" 
+             class="block w-20 h-20 sm:w-22 sm:h-22 bg-gradient-to-tr from-[#FE2C55] via-black to-[#00F2FE] p-1 border-3 border-black rounded-2xl shadow-brutal transition transform group-hover:scale-105 overflow-hidden relative cursor-pointer"
+             title="Lihat Akun Resmi TikTok @clashofclansbebanklan">
             <img id="tiktokAvatarImg" 
-                 src="image_a0625e.png" 
+                 src="https://ibb.co.com/XfNvBssL" 
                  alt="TikTok Profile Avatar - clashofclanbebanklan" 
-                 class="w-full h-full object-cover rounded-xl bg-neutral-900 border border-black/40"
+                 class="w-full h-full object-cover object-center rounded-xl bg-neutral-900 border border-black/40"
                  onerror="handleAvatarError(this)" />
-            <!-- Hover / Tap Camera Overlay -->
-            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[9px] font-mono font-bold text-center p-1 rounded-xl">
-              <span>📷</span>
-              <span>Ganti Foto</span>
-            </div>
-          </div>
-          <!-- Hidden Input for Local Photo File Selection -->
-          <input type="file" id="avatarFileInput" accept="image/*" class="hidden" onchange="handleAvatarUpload(event)">
+          </a>
           <!-- TikTok Music Icon Badge -->
           <span class="absolute -bottom-1.5 -right-1 bg-black text-white text-[11px] p-1 border-2 border-black rounded-lg shadow-brutal-sm flex items-center justify-center select-none pointer-events-none">
             ♫
@@ -1192,7 +1185,7 @@
         username: "@clashofclansbebanklan",
         displayName: "CLASHOFCLANBEBANKLAN",
         profileUrl: "https://www.tiktok.com/@clashofclansbebanklan",
-        avatarUrl: "image_a0625e.png", // Foto profil asli Barbarian Beban Klan
+        avatarUrl: "image_a0840b.png", // Foto profil asli Barbarian Beban Klan
         bio: "Ngoprek Klipper, bikin printer makin kencang, dan sesekali bikin masalah baru buat diselesaikan.",
         stats: {
           following: "142",      // Sesuaikan jumlah mengikuti profil Anda
@@ -1779,27 +1772,15 @@
     }
 
     function handleAvatarError(img) {
-      // Fallback SVG meme Barbarian helm kuning jika file lokal image_a0625e.png belum terbaca di preview server
+      // Coba file backup image_a0625e.png terlebih dahulu jika image_a0840b.png sedang dimuat
+      if (!img.dataset.triedBackup) {
+        img.dataset.triedBackup = "true";
+        img.src = "image_a0625e.png";
+        return;
+      }
+      // Fallback visual meme Barbarian helm kuning jika file gambar lokal sedang dimuat
       img.onerror = null;
       img.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233B0764'/><circle cx='50' cy='56' r='32' fill='%23F59E0B'/><path d='M20 44 C20 18 80 18 80 44 C80 48 74 50 68 45 C62 40 56 52 50 44 C44 52 38 40 32 45 C26 50 20 48 20 44 Z' fill='%23FACC15' stroke='%23121212' stroke-width='3'/><path d='M18 42 L18 78 L28 78 L28 54' fill='%23FACC15' stroke='%23121212' stroke-width='2.5'/><path d='M82 42 L82 78 L72 78 L72 54' fill='%23FACC15' stroke='%23121212' stroke-width='2.5'/><ellipse cx='42' cy='54' rx='3' ry='2' fill='%23121212'/><ellipse cx='58' cy='54' rx='3' ry='2' fill='%23121212'/><path d='M43 68 Q50 62 57 68 Q50 76 43 68 Z' fill='%237F1D1D' stroke='%23121212' stroke-width='2'/><rect x='46' y='64' width='8' height='3' fill='%23FFF'/><ellipse cx='38' cy='64' rx='2' ry='4' fill='%23C084FC'/><ellipse cx='62' cy='64' rx='2' ry='4' fill='%23C084FC'/><ellipse cx='48' cy='76' rx='2' ry='5' fill='%23E9D5FF'/><ellipse cx='53' cy='78' rx='2' ry='5' fill='%23E9D5FF'/></svg>";
-    }
-
-    function handleAvatarUpload(event) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const avatarImg = document.getElementById('tiktokAvatarImg');
-          if (avatarImg) {
-            avatarImg.src = e.target.result;
-            try {
-              localStorage.setItem('bebanklan_avatar', e.target.result);
-            } catch (err) {}
-            showToast('Foto profil TikTok berhasil dipasang!', 'info');
-          }
-        };
-        reader.readAsDataURL(file);
-      }
     }
 
     function openAiAffiliate() {
@@ -1920,12 +1901,8 @@
       const tt = APP_CONFIG.tiktok;
       if (!tt) return;
 
-      // Cek apakah ada avatar yang tersimpan sebelumnya di browser
-      const savedAvatar = localStorage.getItem('bebanklan_avatar');
       const avatarImg = document.getElementById('tiktokAvatarImg');
-      if (savedAvatar && avatarImg) {
-        avatarImg.src = savedAvatar;
-      } else if (avatarImg && tt.avatarUrl) {
+      if (avatarImg && tt.avatarUrl) {
         avatarImg.src = tt.avatarUrl;
       }
 
