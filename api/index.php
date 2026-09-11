@@ -32,6 +32,14 @@ $html = str_replace(
     $html
 );
 
+// Do not allow the old JavaScript fallback to replace the correct avatar.
+$html = preg_replace(
+    '/\s+onerror=["\']handleAvatarError\(this\)["\']/i',
+    '',
+    $html,
+    1
+);
+
 // Keep the complete avatar visible inside the square; never crop it.
 $html = preg_replace(
     '/(<img[^>]*id=["\']tiktokAvatarImg["\'][^>]*class=["\'])([^"\']*)(["\'])/i',
