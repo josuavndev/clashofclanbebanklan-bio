@@ -24,15 +24,24 @@ if ($html === false) {
     exit;
 }
 
-// Use the repository image directly. The previous ImgBB page URL was not a
-// direct image URL, so the browser could fall back to the wrong asset.
-$html = str_replace(
-    'src="https://ibb.co.com/XfNvBssL"',
-    'src="/image_a0840b.png"',
-    $html
+// Use the repository image directly. The old ImgBB URL pointed to an HTML
+// page, not the image itself, and the old onerror handler could replace it.
+$html = preg_replace(
+    '/(<img[^>]*id=["\']tiktokAvatarImg["\'][^>]*\s+src=["\'])[^"\']*(["\'])/i',
+    '$1/image_a0840b.png?v=4$2',
+    $html,
+    1
 );
 
-// Do not allow the old JavaScript fallback to replace the correct avatar.
+// The avatar must show the complete image rather than cropping it.
+$html = preg_replace(
+    '/(<img[^>]*id=["\']tiktokAvatarImg["\'][^>]*\s+class=["\'])[^"\']*(["\'])/i',
+    '$1w-full h-full object-contain object-center rounded-xl bg-transparent border border-black\/40$2',
+    $html,
+    1
+);
+
+// Remove the old fallback handler from the avatar.
 $html = preg_replace(
     '/\s+onerror=["\']handleAvatarError\(this\)["\']/i',
     '',
@@ -40,27 +49,70 @@ $html = preg_replace(
     1
 );
 
-// Keep the complete avatar visible inside the square; never crop it.
+// Each section already has its icon in a dedicated black square. Remove the
+// repeated icon from the H2 so it cannot appear twice.
 $html = preg_replace(
-    '/(<img[^>]*id=["\']tiktokAvatarImg["\'][^>]*class=["\'])([^"\']*)(["\'])/i',
-    '$1$2 object-contain object-center$3',
+    '/(<h2[^>]*>\s*)🏆\s*(TOP DONATUR KLAN)/u',
+    '$1$2',
     $html,
     1
 );
 
 $html = preg_replace(
-    '/(<img[^>]*id=["\']tiktokAvatarImg["\'][^>]*)(>)/i',
-    '$1 style="object-fit:contain!important;object-position:center!important;width:100%;height:100%;display:block;"$2',
+    '/(<h2[^>]*>\s*)⚔️\s*(COC ITEM SHOP)/u',
+    '$1$2',
     $html,
     1
 );
 
-// The COC ITEM SHOP header had the crossed-swords icon both before the title
-// and inside the H2. Keep the dedicated icon and remove the duplicate from H2.
-$html = str_replace(
-    '>⚔️ COC ITEM SHOP</h2>',
-    '>COC ITEM SHOP</h2>',
-    $html
-);
+// Defensive client-side cleanup prevents stale/cached Blade fragments from
+// reintroducing the duplicate icons and enforces the avatar fit mode.
+$html = str_replace('</body>', <<<'HTML'
+<style id="final-ui-fixes">
+  #tiktokAvatarImg {
+    object-fit: contain !important;
+    object-position: center center !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    background: transparent !important;
+  }
+</style>
+<script>
+(function () {
+  function cleanSectionIcon(sectionId, icon, title) {
+    var section = document.getElementById(sectionId);
+    if (!section) return;
+    section.querySelectorAll('h2').forEach(function (heading) {
+      var text = (heading.textContent || '').trim();
+      if (text.indexOf(icon) === 0 && text.indexOf(title) !== -1) {
+        heading.textContent = text.replace(icon, '').trim();
+      }
+    });
+  }
+
+  function applyFinalFixes() {
+    var img = document.getElementById('tiktokAvatarImg');
+    if (img) {
+      img.onerror = null;
+      img.style.objectFit = 'contain';
+      img.style.objectPosition = 'center center';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.display = 'block';
+    }
+    cleanSectionIcon('topDonaturSection', '🏆', 'TOP DONATUR KLAN');
+    cleanSectionIcon('cocShopSection', '⚔️', 'COC ITEM SHOP');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyFinalFixes);
+  } else {
+    applyFinalFixes();
+  }
+})();
+</script>
+</body>
+HTML, 1);
 
 echo $html;
