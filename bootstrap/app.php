@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\View\ViewServiceProvider;
 
 // Vercel does not automatically provide a Laravel .env file at runtime.
 // Keep APP_KEY overridable by a real environment variable, but provide a
@@ -16,6 +17,11 @@ if (!getenv('APP_KEY')) {
 }
 
 return Application::configure(basePath: dirname(__DIR__))
+    ->withProviders([
+        // Laravel's ViewServiceProvider must be registered during bootstrap
+        // so the `view` binding is available before routes are evaluated.
+        ViewServiceProvider::class,
+    ])
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
