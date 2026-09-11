@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\ViewServiceProvider;
 
 return [
     'name' => env('APP_NAME', 'CLASHOFCLANBEBANKLAN'),
@@ -18,9 +17,5 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'array'),
     ],
-    'providers' => ServiceProvider::defaultProviders()->merge([
-        // Explicitly register the view provider for this serverless deployment.
-        // The bio page is rendered from resources/views/home.blade.php.
-        ViewServiceProvider::class,
-    ])->toArray(),
+    'providers' => ServiceProvider::defaultProviders()->toArray(),
 ];
