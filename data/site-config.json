@@ -35,18 +35,18 @@
   ],
   "topDonators": {
     "monthly": [
-      {"rank":1,"name":"Sultan TH16 (Anonim)","amount":"Rp 500.000","coffee":"100 ☕","tier":"👑 CHAMPION LEAGUE","note":"“Biar nozzle 260°C jalan terus & ganti roll PETG baru!”","avatarBg":"from-amber-400 to-yellow-300","badgeBg":"bg-brand-yellow text-black"},
-      {"rank":2,"name":"Lord Pekka 99","amount":"Rp 250.000","coffee":"50 ☕","tier":"🥈 TITAN LEAGUE","note":"“Titip upgrade wall TH15 borongan bang.","badgeBg":"bg-slate-200 text-black"},
-      {"rank":3,"name":"Wizard Kafein","amount":"Rp 150.000","coffee":"30 ☕","tier":"🥉 MASTER LEAGUE","note":"“Sedekah kopi biar gak kena three star pas war!","badgeBg":"bg-amber-100 text-amber-950"},
-      {"rank":4,"name":"Barbarian Santuy","amount":"Rp 75.000","coffee":"15 ☕","tier":"⚔️ CRYSTAL","note":"“Semangat ngoprek Klipper-nya leader!","badgeBg":"bg-purple-100 text-purple-950"},
-      {"rank":5,"name":"Goblin Elixir","amount":"Rp 50.000","coffee":"10 ☕","tier":"🪙 GOLD","note":"“Uang jajan kopi segelas.","badgeBg":"bg-yellow-100 text-yellow-900"}
+      {"rank":1,"name":"Sultan TH16 (Anonim)","amount":"Rp 500.000","coffee":"100 ☕","tier":"👑 CHAMPION LEAGUE","note":"Biar nozzle 260°C jalan terus & ganti roll PETG baru!","avatarBg":"from-amber-400 to-yellow-300","badgeBg":"bg-brand-yellow text-black"},
+      {"rank":2,"name":"Lord Pekka 99","amount":"Rp 250.000","coffee":"50 ☕","tier":"🥈 TITAN LEAGUE","note":"Titip upgrade wall TH15 borongan bang.","badgeBg":"bg-slate-200 text-black"},
+      {"rank":3,"name":"Wizard Kafein","amount":"Rp 150.000","coffee":"30 ☕","tier":"🥉 MASTER LEAGUE","note":"Sedekah kopi biar gak kena three star pas war!","badgeBg":"bg-amber-100 text-amber-950"},
+      {"rank":4,"name":"Barbarian Santuy","amount":"Rp 75.000","coffee":"15 ☕","tier":"⚔️ CRYSTAL","note":"Semangat ngoprek Klipper-nya leader!","badgeBg":"bg-purple-100 text-purple-950"},
+      {"rank":5,"name":"Goblin Elixir","amount":"Rp 50.000","coffee":"10 ☕","tier":"🪙 GOLD","note":"Uang jajan kopi segelas.","badgeBg":"bg-yellow-100 text-yellow-900"}
     ],
     "allTime": [
-      {"rank":1,"name":"Kaisar Filament (Banten)","amount":"Rp 1.750.000","coffee":"350 ☕","tier":"👑 LEGEND SUPREME","note":"“Support total markas BebanKlan sejak era Ender 3!","avatarBg":"from-amber-400 to-yellow-300","badgeBg":"bg-brand-yellow text-black"},
-      {"rank":2,"name":"Sultan TH16 (Anonim)","amount":"Rp 1.100.000","coffee":"220 ☕","tier":"🥈 TITAN SULTAN","note":"“Bebanklan no counter di war!","badgeBg":"bg-slate-200 text-black"},
-      {"rank":3,"name":"HogRider Kece","amount":"Rp 650.000","coffee":"130 ☕","tier":"🥉 MASTER","note":"“Ganti nozzle pake hardened steel bang.","badgeBg":"bg-amber-100 text-amber-950"},
-      {"rank":4,"name":"Lord Pekka 99","amount":"Rp 420.000","coffee":"84 ☕","tier":"⚔️ CRYSTAL","note":"“Langganan joki terpercaya.","badgeBg":"bg-purple-100 text-purple-950"},
-      {"rank":5,"name":"Archer Queen Worshipper","amount":"Rp 250.000","coffee":"50 ☕","tier":"🪙 GOLD","note":"“Buat jajan Mami Queen biar panahnya gak goyang!","badgeBg":"bg-pink-100 text-pink-900"}
+      {"rank":1,"name":"Kaisar Filament (Banten)","amount":"Rp 1.750.000","coffee":"350 ☕","tier":"👑 LEGEND SUPREME","note":"Support total markas BebanKlan sejak era Ender 3!","avatarBg":"from-amber-400 to-yellow-300","badgeBg":"bg-brand-yellow text-black"},
+      {"rank":2,"name":"Sultan TH16 (Anonim)","amount":"Rp 1.100.000","coffee":"220 ☕","tier":"🥈 TITAN SULTAN","note":"Bebanklan no counter di war!","badgeBg":"bg-slate-200 text-black"},
+      {"rank":3,"name":"HogRider Kece","amount":"Rp 650.000","coffee":"130 ☕","tier":"🥉 MASTER","note":"Ganti nozzle pake hardened steel bang.","badgeBg":"bg-amber-100 text-amber-950"},
+      {"rank":4,"name":"Lord Pekka 99","amount":"Rp 420.000","coffee":"84 ☕","tier":"⚔️ CRYSTAL","note":"Langganan joki terpercaya.","badgeBg":"bg-purple-100 text-purple-950"},
+      {"rank":5,"name":"Archer Queen Worshipper","amount":"Rp 250.000","coffee":"50 ☕","tier":"🪙 GOLD","note":"Buat jajan Mami Queen biar panahnya gak goyang!","badgeBg":"bg-pink-100 text-pink-900"}
     ]
   }
 }
