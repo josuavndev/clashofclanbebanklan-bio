@@ -1,11 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "composer install --no-dev --prefer-dist --optimize-autoloader",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0"
     }
   },
   "routes": [
+    { "src": "/(.*)\\.(png|jpg|jpeg|gif|svg|webp|ico|css|js|txt|xml|json)$", "dest": "/public/$1.$2" },
     { "src": "/(.*)", "dest": "/api/index.php" }
   ]
 }
